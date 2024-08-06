@@ -1,0 +1,109 @@
+<!-- <div>
+  <div class="active">
+      <div class="quiz"><b>WAREHOUSE MANAGEMENT SYSTEM</b></div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="column">
+      Customer id: <input type="text" id="name">
+      <br><br><br>
+      Product: <input type="text" id="number">
+      <br><br><br>
+      Quantity: <input type="text" id="wrong">
+      <br><br><br>
+      Location: <input type="text" id="correct">
+      <br><br><br>
+      Shipment id: <input type="text" id="total">
+      <br><br><br>
+      <button>Insert</button>
+      <button>Delete</button>
+      <button>Update</button>
+      <button>Save</button>
+      <button>Submit</button>
+    </div>
+    <div class="column">
+    <h1>Result Analysis</h1>
+    </div>
+  </div>
+
+</div> -->
+
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+        
+    </head>
+
+    <body>
+        <h1>WAREHOUSE MANAGEMENT SYSTEM</h1>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                             <form #myForm="ngForm">
+                                <div class="form-group">
+                                    <label for="Customer Id">Customer Id</label>
+                                    <input type="text" class="form-control" name="customerId" 
+                                           #customerId="ngModel" ngModel required pattern="[0-9]+"/>
+                                </div>
+                                <div *ngIf="customerId.touched">
+                                     <div *ngIf="customerId.errors?.['required']">
+                                      <b style="color: red;">Cusitomer Id Required</b>
+                                     </div>  
+                                     <div *ngIf="customerId.errors?.['pattern']">
+                                     <b style="color: red;">Invalid Customer Id</b>
+                                     </div>      
+                                </div>
+                                <div class="form-group">
+                                    <label for="Product Name">Product Name</label>
+                                    <input type="text" class="form-control" name="productName" #productName="ngModel" ngModel/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Quantity">Quantity</label>
+                                    <input type="text" class="form-control" name="qty" #qty="ngModel" ngModel/>
+                                </div>
+                                <div class="form-group">
+                                  <label for="Location">Location
+                                  </label>
+                                  <input type="text" class="form-control" name="loc" #loc="ngModel" ngModel/>
+                              </div>
+                              <div class="form-group">
+                                <label for="Shipmentid">Shipment id</label>
+                                <input type="text" class="form-control" name="shipid" #shipid="ngModel" ngModel />
+                            </div>                                                             
+                                <button class="btn btn-success" (click)="insertwarehouse(myForm.value)">
+                                    Insert 
+                                </button>&nbsp;&nbsp;
+                                <button class="btn btn-primary"  (click)="updatewarehouse(myForm.value)">
+                                    Update 
+                                </button>&nbsp;&nbsp;
+                                <button class="btn btn-danger" (click)="deletewarehouse(myForm.value)">
+                                    Delete 
+                                </button>&nbsp;&nbsp;
+                                <button class="btn btn-warning" (click)="findwarehouse(myForm.value)">
+                                    Find 
+                                </button>&nbsp;&nbsp;
+                                <!-- <button class="btn btn-info" (click)="findAllwarehouse(myForm.value)">
+                                    Find All
+                                </button> -->
+                                <button class="btn btn-info" (click)="findAllwarehouse()">
+                                  Find All
+                                </button>
+                            </form>                            
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <h3>{{result}}</h3>
+         {{ware.id}}-{{ware.productName}}-{{ware.qty}}-{{ware.loc}}-{{ware.shipid}}
+         <div style="width: 100%;" *ngIf="flag">
+            <table width="80%" align="center" class="table table-borderd">
+             <tr><th>Customer Id</th><th>Product Name</th><th>Quantity</th><th>Location</th><th>Shipmentid</th></tr> 
+              <tr *ngFor="let ware of productArr">
+                  <td> {{ware.id}} </td><td> {{ware.productName}} </td><td> {{ware.qty}} </td><td>{{ware.loc}}</td><td>{{ware.shipid}}</td>
+              </tr>
+           </table>
+           </div>
+    </body>
+</html>
+
+

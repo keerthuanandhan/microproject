@@ -1,0 +1,41 @@
+body{
+    margin: 0;
+}
+.quiz{
+    background-color: palegreen;
+    text-align: center;
+    padding: 10px;
+    font-size: 25px;
+}
+
+.row{
+   display: flex;
+    /* height:calc(100vh-50px); */
+}
+.column{
+    flex: 1px;
+    padding: 25px;
+    background-color: antiquewhite;
+}
+  /* .column:first-child{
+     background-color: antiquewhite;
+  } */
+.column:last-child{
+   background-color:paleturquoise;
+   height: 700px;
+}
+button{
+    padding:10px 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+button:hover{
+    color:red;
+}
+input{
+    display: block;
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+}

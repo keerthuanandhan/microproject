@@ -1,0 +1,25 @@
+{
+  "warehouses": [
+    {
+      "id": "101",
+      "productName": "vegetables",
+      "qty": 10,
+      "loc": "Goa",
+      "shipid": 1230
+    },
+    {
+      "id": "500",
+      "productName": "Lether bag",
+      "qty": 120,
+      "loc": "kashmir",
+      "shipid": 1230
+    },
+    {
+      "id": "123",
+      "productName": "note",
+      "qty": "30",
+      "loc": "sikkim",
+      "shipid": "67"
+    }
+  ]
+}
